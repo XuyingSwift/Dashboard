@@ -2,12 +2,13 @@ import React from 'react';
 import Header from './mainview-header/Header.component';
 import * as s from './Mainview.styles';
 
+import Routes from '../Routes.js';
+
 const Mainview = () => {
     return (
         <s.MainviewContainer>
             <Header/>
-            <h1>Paul Swift</h1>
-            <p>Some text here and there.</p>
+            <Routes/>
         </s.MainviewContainer>
     )
 }
