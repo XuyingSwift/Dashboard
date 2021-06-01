@@ -1,14 +1,24 @@
 import React from 'react';
-import * as s from './App.styles';
-import Mainview from './mainview/Mainview.component';
-import Sidebar from './sidebar/Sidebar.component';
+import './App.css'
+import * as s from './App.styles'
+
+
 
 function App() {
   return (
-    <s.AppContainer>
-      <Sidebar/>
-      <Mainview/>
-    </s.AppContainer>
+   
+      <s.GridLayout>
+        <s.Logo>
+        
+        </s.Logo>
+        <s.Header/>
+        <s.Sidebar/>
+        <s.Mainview/>
+        <s.Footer/>
+      </s.GridLayout>
+
+
+   
   );
    
 }

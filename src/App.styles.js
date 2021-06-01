@@ -1,18 +1,38 @@
 import styled from 'styled-components';
 
-export const AppContainer = styled.div`
-    height: 100vh;
-    display: flex;
-`
+export const GridLayout = styled.div`
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr 9fr 1fr;
+  grid-template-columns: 1fr 6fr;
+  grid-template-areas:
+    "logo header"
+    "sidebar mainview"
+    "footer footer"
+  ;
+  grid-gap: 2px;
+`;
 
-export const SidebarContainer = styled.div`
-    height: 100vh;
-    width: 20%;
-    background-color: blue;
-`
+export const Logo = styled.div`
+  grid-area: logo;
+`;
 
-export const MainviewContainer = styled.div`
-    height: 100vh;
-    width: 80%;
-    background-color: red;
-`
+export const Header = styled.nav`
+  grid-area: header;
+  background: pink;
+`;
+
+export const Sidebar = styled.aside`
+  grid-area: sidebar;
+  background: red;
+`;
+
+export const Mainview = styled.div`
+  grid-area: mainview;
+  background: green;
+`;
+
+export const Footer = styled.footer`
+  grid-area: footer;
+  background: yellow;
+`;
