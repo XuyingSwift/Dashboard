@@ -1,24 +1,18 @@
 import React from 'react';
 import './App.css'
 import * as s from './App.styles'
-
-
+import Mainview from './mainview/Mainview.component';
 
 function App() {
   return (
    
       <s.GridLayout>
-        <s.Logo>
-        
-        </s.Logo>
-        <s.Header/>
         <s.Sidebar/>
-        <s.Mainview/>
+        <s.Mainview>
+          <Mainview/>
+        </s.Mainview>
         <s.Footer/>
       </s.GridLayout>
-
-
-   
   );
    
 }

@@ -1,13 +1,16 @@
 import React from 'react';
-import Header from './mainview-header/Header.component';
+import Header from '../Components/header/Header.component'
 import * as s from './Mainview.styles';
-
+import SignInAndSignUp from '../pages/SignInAndSignOut.component';
 const Mainview = () => {
     return (
         <s.MainviewContainer>
-            <Header/>
-            <h1>Paul Swift</h1>
-            <p>Some text here and there.</p>
+            <s.HeaderContainer>
+                <Header/>
+            </s.HeaderContainer>
+            <s.ContentContainer>
+                <SignInAndSignUp/>
+            </s.ContentContainer>
         </s.MainviewContainer>
     )
 }
