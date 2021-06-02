@@ -1,38 +1,32 @@
 import styled from 'styled-components';
+import {Cararra, MineShaft} from './ColorPalette'
 
 export const GridLayout = styled.div`
   height: 100vh;
+  width: 100vw;
   display: grid;
   grid-template-rows: 1fr 9fr 1fr;
-  grid-template-columns: 0.5fr 0.5fr 6fr;
+  grid-template-columns: 1fr 6fr;
   grid-template-areas:
-    "logo header header"
-    "sidebar sidebar mainview"
-    "footer footer footer"
+    "sidebar mainview"
+    "sidebar mainview"
+    "footer footer"
   ;
   grid-gap: 2px;
 `;
 
-export const Logo = styled.div`
-  grid-area: logo;
-`;
-
-export const Header = styled.nav`
-  grid-area: header;
-  background: pink;
-`;
-
 export const Sidebar = styled.aside`
   grid-area: sidebar;
-  background: red;
+  background: ${Cararra};
 `;
 
 export const Mainview = styled.div`
   grid-area: mainview;
-  background: green;
+  background: white;
 `;
 
 export const Footer = styled.footer`
   grid-area: footer;
-  background: yellow;
+
+  background: ${MineShaft};
 `;

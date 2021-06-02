@@ -1,14 +1,17 @@
 import React from 'react';
-import Header from './mainview-header/Header.component';
+import Header from '../components/header/Header.component';
 import * as s from './Mainview.styles';
 
-import Routes from '../Routes.js';
-
+import SignInAndSignUp from '../pages/SignInAndSignOut.component';
 const Mainview = () => {
     return (
         <s.MainviewContainer>
-            <Header/>
-            <Routes/>
+            <s.HeaderContainer>
+                <Header/>
+            </s.HeaderContainer>
+            <s.ContentContainer>
+                <SignInAndSignUp/>
+            </s.ContentContainer>
         </s.MainviewContainer>
     )
 }
