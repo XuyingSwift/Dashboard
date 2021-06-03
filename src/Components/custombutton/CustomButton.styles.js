@@ -1,26 +1,57 @@
-import styled from 'styled-components';
-import { Buttercup, DeepKoamaru } from '../../ColorPalette';
+import styled, { css } from 'styled-components';
 
-export const ButtonContainer = styled.button`
-    min-width: 165px;
-    height: 50px;
-    padding: 13px 13px;
-    margin-bottom: 15px;
-    font-weight: bolder;
-    letter-spacing: 0.5px;
-    font-size: 18px;
-    width: auto;
-    background-color: ${Buttercup};
-    text-transform: uppercase;
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
-    
+const buttonStyles = css`
+  background-color: black;
+  color: white;
+  border: none;
+  &:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+  }
+`;
+
+const invertedButtonStyles = css`
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  &:hover {
+    background-color: black;
     color: white;
     border: none;
-    &:hover {
-        background-color: white;
-        color: black;
-        border: 1px solid black;
   }
-`
+`;
+
+const googleSignInStyles = css`
+  background-color: #4285f4;
+  color: white;
+  &:hover {
+    background-color: #357ae8;
+    border: none;
+  }
+`;
+
+const getButtonStyles = props => {
+  if (props.isGoogleSignIn) {
+    return googleSignInStyles;
+  }
+
+  return props.inverted ? invertedButtonStyles : buttonStyles;
+};
+
+export const CustomButtonContainer = styled.button`
+  min-width: 165px;
+  width: auto;
+  height: 50px;
+  letter-spacing: 0.5px;
+  line-height: 50px;
+  padding: 0 35px 0 35px;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-family: 'Open Sans Condensed';
+  font-weight: bolder;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  ${getButtonStyles}
+`;

@@ -5,9 +5,9 @@ export const SignUpContainer = styled.div`
     background-color: ${LightBlue};
     display: flex;
     flex-direction: column;
-    width: 414px;
+    width: 400px;
     height: 100%;
-    color: ${Black};
+    color: white;
     justify-content: center;
     align-items: center;
 `
