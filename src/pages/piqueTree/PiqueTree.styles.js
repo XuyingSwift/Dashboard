@@ -5,4 +5,5 @@ export const PiquetreeContainer = styled.div`
     display: flex;
     justify-content: space-between;
     margin: 30px auto;
+    color: black;
 `

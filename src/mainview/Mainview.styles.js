@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {DeepKoamaru} from '../ColorPalette';
+import {Buttercup} from '../ColorPalette';
 
 export const MainviewContainer = styled.div`
 
@@ -16,7 +16,7 @@ export const MainviewContainer = styled.div`
 
 export const HeaderContainer = styled.header`
     grid-area: header;
-    background-color: ${DeepKoamaru} ;
+    background-color: ${Buttercup} ;
 `
 
 export const ContentContainer = styled.div`
