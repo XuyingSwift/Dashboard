@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Black, LightBlue} from '../../ColorPalette';
+import { LightBlue} from '../../ColorPalette';
 
 export const SignUpContainer = styled.div`
     background-color: ${LightBlue};

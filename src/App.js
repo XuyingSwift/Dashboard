@@ -2,26 +2,40 @@ import React from 'react';
 
 import './App.css'
 import * as s from './App.styles'
-import { auth } from './firebase/firebase.util';
+import { auth, createUserProfileDocument } from './firebase/firebase.util';
 import Mainview from './mainview/Mainview.component';
+import {connect} from 'react-redux';
+import {setCurrentUser} from './redux/user/user.actions';
 
 class App extends React.Component {
 
-  constructor() {
-    super();
-    this.state = {
-      currentUser: null
-    }
-  }
 
   unsubscribeFromAuth = null;
 
   componentDidMount() {
+    const {setCurrentUser} = this.props;
     // add an observer that user signin is changed session presitence, so we don't need to track it mannually
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-      this.setState({currentUser: user});
-      console.log(user)
-    })
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
+
+        userRef.onSnapshot(snapShot => {
+          setCurrentUser({
+            currentUser: {
+              id: snapShot.id,
+              ...snapShot.data()
+            }
+          });
+
+          
+        });
+      }
+
+      setCurrentUser({ currentUser: userAuth });
+      
+
+    });
+   
   }
   
   componentWillUnmount() {
@@ -34,7 +48,7 @@ class App extends React.Component {
       <s.GridLayout>
         <s.Sidebar/>
         <s.Mainview>
-          <Mainview currentUser={this.state.currentUser}/>
+          <Mainview/>
         </s.Mainview>
         <s.Footer/>
       </s.GridLayout>
@@ -44,4 +58,7 @@ class App extends React.Component {
    
 }
 
-export default App;
+const mapDispatchToProps = dispatch => ({
+  setCurrentUser: user => dispatch(setCurrentUser(user))
+})
+export default connect(null, mapDispatchToProps)(App);
