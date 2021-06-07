@@ -1,17 +1,12 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import * as s from './UserDropDown.styles';
 
-const UserDropDown = ({currentUser}) => {
+const UserDropDown = () => {
     return (
         <s.UserDropDownContainer>
-            <s.CheckoutButton>SignOut</s.CheckoutButton>
+            <s.CheckoutButton>Signout</s.CheckoutButton>
         </s.UserDropDownContainer>
     )
 }
 
-const mapStateToProps = state => ({
-    currentUser: state.user.currentUser
-})
-
-export default connect(mapStateToProps)(UserDropDown);
+export default UserDropDown;
