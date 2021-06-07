@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {Cararra, MineShaft} from './ColorPalette'
+import {MineShaft} from './ColorPalette'
 
 export const GridLayout = styled.div`
   height: 100vh;
@@ -12,12 +12,12 @@ export const GridLayout = styled.div`
     "sidebar mainview"
     "footer footer"
   ;
-  grid-gap: 2px;
 `;
 
 export const Sidebar = styled.aside`
   grid-area: sidebar;
-  background: ${Cararra};
+  padding: 0;
+  margin: 0;
 `;
 
 export const Mainview = styled.div`

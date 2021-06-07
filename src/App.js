@@ -6,6 +6,8 @@ import Mainview from './mainview/Mainview.component';
 import {connect} from 'react-redux';
 import {setCurrentUser} from './redux/user/user.actions';
 import { auth, createUserProfileDocument } from './firebase/firebase.util';
+import Sidebar from './sidebar/Sidebar.component';
+import * as data from './sidebar/SidebarData';
 
 class App extends React.Component {
 
@@ -25,7 +27,7 @@ class App extends React.Component {
             });            
           });
         }
-        setCurrentUser({ currentUser: userAuth });
+        setCurrentUser(userAuth);
       });
       console.log("app", this.props.currentUser)
     }
@@ -37,26 +39,26 @@ class App extends React.Component {
 
 
   render() {
+    console.log("app", this.props.currentUser)
     return (
-   
       <s.GridLayout>
-        <s.Sidebar/>
+        <s.Sidebar>
+          <Sidebar 
+            backgroundImage={data.backgroundImage}
+            menuItems={data.MenuData}
+          />
+        </s.Sidebar>
         <s.Mainview>
           <Mainview />
         </s.Mainview>
         <s.Footer/>
       </s.GridLayout>
   );
-  }
-  
-   
+  }  
 }
 
 const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user))
 })
 
-const mapStateToProps = ({user}) => ({
-  currentUser: user.currentUser
-})
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);
