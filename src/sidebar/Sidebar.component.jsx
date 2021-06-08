@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import * as s from './Sidebar.styles';
+import * as data from './SidebarData';
+
 
 const Sidebar = (props) => {
     const {
         backgroundImage='',
+        sidebarHeaderImage=data.sidebarHeaderImage,
         colorPalette = {
             bgColor1: 'rgba(28, 78, 128, 0.8)',
             bgColor2: 'rgba(126, 144, 154, 0.8)',
@@ -33,8 +36,8 @@ const Sidebar = (props) => {
      
 
   return (
-      <s.SidebarLayout >
-        <s.SidebarHeader colorPalette={colorPalette} >Pique</s.SidebarHeader>
+      <s.SidebarLayout>
+        <s.SidebarHeader sidebarHeaderImage={sidebarHeaderImage} />
         <s.SidebarMenu backgroundImage={backgroundImage} colorPalette={colorPalette}>
             <s.Item>{MenuDataJSX}</s.Item>
         </s.SidebarMenu>

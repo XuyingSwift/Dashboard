@@ -47,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.13.13",
     "babel-cli": "^6.26.0"
   }
 }

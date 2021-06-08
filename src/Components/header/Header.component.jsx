@@ -5,12 +5,16 @@ import * as s from './Header.styles';
 import {connect} from 'react-redux';
 import UserIcon from '../userIcon/UserIcon.component';
 import {auth} from '../../firebase/firebase.util';
+import { setCurrentUser } from '../../redux/user/user.actions';
+import PiqueIcon from '../logo/PiqueIcon.component';
+
 
 const Header = ({currentUser}) => {
    
     return (
         <s.HeaderContainer>
             <s.GroupContainer>
+                <s.OptionLink to='/' style={{textDecoration: 'none'}}><PiqueIcon/></s.OptionLink> 
                 <s.OptionLink to='/home' style={{textDecoration: 'none'}}>Home</s.OptionLink>
                 <s.OptionLink to='/piquetree' style={{textDecoration: 'none'}}>Pique Tree</s.OptionLink>
                
@@ -19,7 +23,7 @@ const Header = ({currentUser}) => {
                     : null
                 }
 
-                {currentUser ? <s.OptionLink style={{textDecoration: 'none'}}  onClick={() => auth.signOut()}>Sign Out</s.OptionLink> 
+                {currentUser ? <s.OptionLink to='' style={{textDecoration: 'none'}}  onClick={() => auth.signOut()}>Sign Out</s.OptionLink> 
                 :
                 <s.OptionLink to='/signin' style={{textDecoration: 'none'}}>Sign in</s.OptionLink>
             }
@@ -34,4 +38,8 @@ const mapStateToProps = state => ({
 
   });
 
-export default connect(mapStateToProps)(Header);
+  const mapDispatchToProps = dispatch => ({
+    setCurrentUser: user => dispatch(setCurrentUser(user))
+  })
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

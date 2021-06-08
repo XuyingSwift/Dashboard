@@ -5,6 +5,7 @@ import {AiOutlineSetting} from 'react-icons/ai';
 
 export const backgroundImage = 'images/mt.jpeg';
 
+export const sidebarHeaderImage = 'images/PIQUE_png.png';
 
 export const backgroundColor ='#142C74';
 

@@ -5,7 +5,7 @@ export const SidebarLayout = styled.div`
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-rows: 1fr 8fr;
+  grid-template-rows: 1fr 10fr;
   grid-template-areas:
     "sidebarHeader"
     "sidebarMenu"
@@ -16,12 +16,14 @@ export const SidebarLayout = styled.div`
 
 export const SidebarHeader = styled.div`
   grid-area: sidebarHeader;
-  background-color: red;
-  padding: 10px;
-  text-align: center;
-  margin: 0;
-  letter-spacing: 6px;
-  color: white;
+  height: 100%;
+  width: 40%;
+  padding: 5px;
+  margin-bottom: 10px;
+  background-image: url(${p => p.sidebarHeaderImage});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 `
 export const SidebarMenu = styled.div`
   grid-area: sidebarMenu;

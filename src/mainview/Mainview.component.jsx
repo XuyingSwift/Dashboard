@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../components/header/Header.component';
 import * as s from './Mainview.styles';
-import {Switch, Route} from 'react-router-dom';
+import {Switch, Route, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import SignInAndSignUp from '../pages/signIn-signUp-page/SignInSignUpPage.component';
@@ -20,7 +20,10 @@ const Mainview = ({currentUser}) => {
                         <Route exact path='/' component={HomePage}/>
                         <Route exact path='/home' component={HomePage}/>
                         <Route exact path='/piquetree' component={PiqueTree}/>
-                        <Route exact path='/signin' component={SignInAndSignUp}/>
+                        <Route exact path='/signin' render={ () => currentUser ?
+                        (<Redirect to='/'/>) 
+                        : (<SignInAndSignUp/>)}
+                        />
                     </Switch>
                 </s.ContentContainer>
             </s.MainviewContainer>
