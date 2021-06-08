@@ -10,7 +10,7 @@ export const FormInputContainer = styled.div`
     position: relative;
     margin: 30px;
     padding: 0;
-    width: 100%;
+    width: 300px;
     input[type='password'] {
         letter-spacing: 0.3em;
   }
